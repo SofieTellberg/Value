@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <title>Gränsvärde</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $("#myTable tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          });
+        });
+      });
+    </script>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 70%;
+      }
+
+      td,
+      th {
+        border: 3px solid black;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+
+      th.Sviskon {
+        margin: auto;
+        width: 10%;
+        padding: 10px;
+      }
+
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">Meddelande</h4>
+            <p class="text-muted">
+              Detta är mitt förslag till en sammlingsplats för sådant som berör
+              olika gränsvärden. Sammlingsplatsen är konstruerad så att du kan
+              söka på det önskade ämnet och finns det en matchning dyker det
+              upp. Detta är med syfte att underlätta vårt arbete. Ser du något
+              som inte stämmer får du mer än gärna informera mig! //Sofie
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-building" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+            <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+          </svg>
+            <circle cx="12" cy="13" r="4" />
+          </svg>
+          <strong>&nbsp Gränsvärden</strong>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarHeader"
+          aria-controls="navbarHeader"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <center><h2>Gränsvärden över hälso- och miljöfarliga ämnen</h2></center>
+    <center>
+      <p>
+        Beroende på vad du söker efter kan du i sökfältet skriva in ämnet du
+        söker gränsvärde på eller på en vald enhet. Det som matchar din sökning
+        kommer dyka upp. Detta möjliggör att du lätt och snabbt hittar det du
+        söker efter. Även länkar till källan och övrig information på internet
+        kommer finnas tillgänglig.
+      </p>
+    </center>
+    <center><input id="myInput" type="text" placeholder="Sök" /></center>
+    <br />
+    <br />
+    <center>
+      <table>
+        <thead>
+          <tr>
+            <th>Ämne</th>
+            <th>Beteckning</th>
+            <th>Enhet</th>
+            <th>Gränsvärde</th>
+            <th>Kommentar</th>
+            <th class="Sviskon">Länkar</th>
+          </tr>
+        </thead>
+        <tbody id="myTable">
+          <tr>
+            <td><details><summary>Antimon</summary><p><small>Antimon är en halvmetall som bla kan hittas i plast, flamskyddsmedel och glas.</small></p></details></td>
+            <td>Sb</td>
+            <td>mg/kg</td>
+            <td>5</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Arsenik</summary><p><small>En del äldre byggmaterial kan innehålla farliga ämnen, såsom arsenik i impregnerat trä och PCB i fönster.</small></p></details></td>
+            <td>As</td>
+            <td>µg/l</td>
+            <td>10</td>
+            <td>Allmänt</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Asbest</summary><p><small>Asbest är ett samlingsnamn på flera mineraler som finns i naturen. Asbest har tidigare använts som brandskydd i stålkonstruktioner, ventilationsanläggningar, värmeisolering i rör, underskikt till plastmattor, fix och fog till kakel,färger och plaster.</small></p></details></td>
+            <td>1332-21-4</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Svar JA innebär att det innehåller asbest</td>
+            <td>
+              <a 
+                href="https://www.av.se/arbetsmiljoarbete-och-inspektioner/publikationer/foreskrifter/hygieniska-gransvarden-afs-20181-foreskrifter/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>BBP</summary><p><small>BBP heter även butylbensylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>85-68-7</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Föbjudet och utgör farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Bly</summary><p><small>Bly är en metall som går att hitta i färger, elektriska tillämpningar, blyspröjsar och batteri.</small></p></details></td>
+            <td>Pb</td>
+            <td>mg/kg</td>
+            <td>0,5</td>
+            <td>Allmänt</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>CFC-11</summary><p><small>CFC-11 heter även fluortriklormetan och används som köldmedium i bla kylskåp och installationstekniska system.</small></p></details></td>
+            <td>75-69-4</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>CFC-12</summary><p><small>CFC-12 heter även difluordiklormetan och används som köldmedium i kylskåp och installationstekniska system</small></p></details></td>
+            <td>75-71-8</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>CFC-113</summary><p><small>CFC-113 heter även trifluortrikloretan och används som köldmedium i kylskåp och installationstekniska system.</small></p></details></td>
+            <td>76-13-1</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Cr6+</summary><p><small>Cr6+ är en "uppdelning" av krom och används bla i träskyddsmedel på telefonstolpar.</small></p></details></td>
+            <td>18540-29-9</td>
+            <td>mg/kg</td>
+            <td>2,5</td>
+            <td>Innebär att det är krom som uppdelat</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Stod-i-miljoarbetet/Vagledningar/Fororenade-omraden/Riktvarden-for-fororenad-mark/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DBP</summary><p><small>DBP heter även di-n-butylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>80-43-3</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DCP</summary><p><small>DCP heter även di-cyklohexylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>80-43-3</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DEHP</summary><p><small>DEHP heter även di-(2-etylhexyl)ftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>117-81-7</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Begränsat i elektronik och utgör farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DEP</summary><p><small>DEP heter även dietylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>84-66-2</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Reglerat användningsområde och utgör farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DIBP</summary><p><small>DIBP heter även di-iso-butylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>84-69-5</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Reglerad användningsområde och utgör farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DOC</summary><p><small>DOC innebär organiskt upplöst material/kol och går bla hitta i mark och vatten.</small></p></details></td>
+            <td>Finns inget</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DMP</summary><p><small>DMP heter även dimetylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>131-11-3</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Reglerad användningsområde och utgör farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <td><details><summary>DNOP</summary><p><small>DNOP heter även di-n-oktylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+          <td>117-84-0</td>
+          <td>%</td>
+          <td>0,1</td>
+          <td>Reglerad användningsområde och utgör farligt avfall</td>
+          <td>
+            <a
+              href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+              >Länk</a
+            >
+          </td>
+        </tr>
+        <td><details><summary>DNPP</summary><p><small>DNPP heter även di-n-pentylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+        <td>131-18-0</td>
+        <td>%</td>
+        <td>0,1</td>
+        <td>Reglerad användningsområde och utgör farligt avfall</td>
+        <td>
+          <a
+            href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+            >Länk</a
+          >
+        </td>
+        </tr>
+      </tr>
+      <td><details><summary>DPP</summary><p><small>DPP heter även di-n-propylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+      <td>131-16-8</td>
+      <td>%</td>
+      <td>0,1</td>
+      <td>Reglerad användningsområde och utgör farligt avfall</td>
+      <td>
+        <a
+          href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+          >Länk</a
+        >
+      </td>
+      </tr>
+          <tr>
+            <td><details><summary>Fluorid</summary><p><small>Flurid är negativt laddade jouner och flour och används bla i träskyddsmedel på telefonstolpar.</small></p></details></td>
+            <td>F-</td>
+            <td>mg/kg</td>
+            <td>500</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>HCFC-22</summary><p><small>HCFC-22 heter även difluorklormetan och är ett köldmedium och används bla i kylskåp, installationstekniska system och rörisoleringar.</small></p></details></td>
+            <td>75-45-6</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>HCFC-141b</summary><p><small>HCFC-141b heter även 1,1-Dichloro-1-fluoroethane och är ett köldmedium och används bla i kylskåp, installationstekniska system och rörisoleringar.</small></p></details></td>
+            <td>1717-00-6</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>HCFC-142b</summary><p><small>HCFC-142b heter även 1-Chloro-1,1-difluoroethane och är ett köldmedium och används bla i kylskåp, installationstekniska system och rörisoleringar.</small></p></details></td>
+            <td>75-68-3</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>HFC-134A</summary><p><small>HFC-134A heter även 1,1,1,2-Tetrafluoretan och är ett köldmedium och används bla i kylskåp, installationstekniska system och rörisoleringar.</small></p></details></td>
+            <td>811-97-2</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+        </tr>
+        <td><details><summary>Klorid</summary><p><small>Klorid är en negativt laddad jon av grundämnet klor och är bla en beståndsdel i träskyddsmedel som används på telefonstolpar.</small></p></details></td>
+        <td>Ci-</td>
+        <td>mg/kg</td>
+        <td>25000</td>
+        <td>Farligt avfall</td>
+        <td>
+          <a
+            href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+            >Länk</a
+          >
+        </td>
+      </tr>
+        <tr>
+          <td><details><summary>Klorparaffiner MCCP</summary><p><small>MCCP är mellankedjiga klorparaffiner och går bla att hitta i fogar och plastgolv.</small></p></details></td>
+          <td>85535-85-9</td>
+          <td>mg/kg</td>
+          <td>1000</td>
+          <td>Tänk på att dubbelkolla om beräkning behövs göras</td>
+          <td>
+            <a href="http://www.sanerapcb.nu/web/page.aspx?refid=706">Länk</a>
+          </td>
+        </tr>
+          <tr>
+            <td><details><summary>Klorparaffiner SCCP</summary><p><small>MCCP är kortkedjiga klorparaffiner och går bla att hitta i fogar och plastgolv.</small></p></details></td>
+            <td>85535-84-8</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Tänk på att dubbelkolla om beräkning behövs göras</td>
+            <td>
+              <a href="http://www.sanerapcb.nu/web/page.aspx?refid=706">Länk</a>
+            </td>
+
+          <tr>
+            <td><details><summary>Klorparaffiner SCCP+MCCP</summary><p><small>Är både kort- och långkedjiga klorparraffiner och går bla att hitta i fogar och plastgolv.</small></p></details></td>
+            <td>85535-84-8</td>
+            <td>mg/kg</td>
+            <td>2500</td>
+            <td>Tänk på att dubbelkolla om beräkning behövs göras</td>
+            <td>
+              <a href="http://www.sanerapcb.nu/web/page.aspx?refid=706">Länk</a>
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Kobolt</summary><p><small>Kobolt är ett metaliskt grundämne som bla är en beståndsdel i träskyddsmedel som används på telefonstolpar.</small></p></details></td>
+            <td>Co</td>
+            <td>mg/kg</td>
+            <td>15</td>
+            <td>Torrsubstans</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Koppar</summary><p><small>Koppar är ett metalliskt grundämne som bla använd inom elektriska system, färger och beståndsdel i träskyddsmedel som används på trästolpar.</small></p></details></td>
+            <td>Cu</td>
+            <td>mg/kg</td>
+            <td>2</td>
+            <td>Allmänt</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Krom total</summary><p><small>Krom är ett metaliskt grundämne som bla är en beståndsdel i träskyddsmedel som på telefonsstolpar.</small></p></details></td>
+            <td>Cr</td>
+            <td>mg/kg</td>
+            <td>0,5</td>
+            <td>Allmänt</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Kvicksilver</summary><p><small>Kvicksilver är ett metalliskt grundämne som bla är en används som stabilisator i PVC plast, pigment och beståndsdel i nivåvippor.</small></p></details></td>
+            <td>Hg</td>
+            <td>mg/kg</td>
+            <td>2</td>
+            <td>Byggmaterial</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Mangan</summary><p><small>Mangan är ett metaliskt grundämne som bla är en beståndsdel i träskyddsmedel som används på trästolpar.</small></p></details></td>
+            <td>Mn</td>
+            <td>mg/kg</td>
+            <td>Finns inget</td>
+            <td>Byggmaterial</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Molybden</summary><p><small>Molybden är ett metaliskt grundämne.</small></p></details></td>
+            <td>Mo</td>
+            <td>mg/kg</td>
+            <td>30</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Nickel</summary><p><small>Nickel är ett metaliskt grundämne som bla är en beståndsdel i träskyddsmedel som används på telefonstolpar.</small></p></details></td>
+            <td>Ni</td>
+            <td>mg/kg</td>
+            <td>50</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Selen</summary><p><small>Selen är ett icke metaliskt grundämne.</small></p></details></td>
+            <td>Se</td>
+            <td>mg/kg</td>
+            <td>7</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Toluene</summary><p><small>Toluene är ett aromatiska kolväten och kan finnas i en rad byggmaterial.</small></p></details></td>
+            <td>108-88-3 </td>
+            <td>µg/m3</td>
+            <td>2 900</td>
+            <td>Finns inget gränsvärde, förslag från kemikalieinspektonen.</td>
+            <td>
+              <a
+                href="https://www.kemi.se/global/rapporter/2015/rapport-8-15-halsoskadliga-kemiska-amnen-i-byggprodukter.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>PCB</summary><p><small>PCB heter även polyklorerade bifenyler och är en rad hälso- och miljöfarliga ämnen. PCB går bla att hitta i fogar, ventilationstätningar och halkfria golv.</small></p></details></td>
+            <td>1336-36-3</td>
+            <td>mg/kg</td>
+            <td>50</td>
+            <td>Fogmassor</td>
+            <td>
+              <a href="http://www.sanerapcb.nu/web/page.aspx?refid=12">Länk</a>
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Zink</summary><p><small>Zink är ett metaliskt grundämne som bla är en beståndsdel i träskyddsmedel som används på telefonstolpar.</small></p></details></td>
+            <td>Zn</td>
+            <td>mg/kg</td>
+            <td>200</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <br />
+    <br />
+    <div class="card-footer text-muted"></div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
